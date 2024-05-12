@@ -1,19 +1,20 @@
 {
-  "devDependencies": {
-    "@types/react": "^18.2.64",
-    "@types/react-dom": "^18.2.21",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
-    "sakura.css": "^1.5.0",
-    "extension": "latest"
-  },
+  "name": "assistencoment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "extension dev",
-    "start": "extension start",
-    "build": "extension build"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run": "node ."
   },
-  "dependencies": {},
-  "name": "assistenComent",
-  "private": true,
-  "version": "0.0.0"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "groq-sdk": "^0.3.3",
+    "parse": "^5.0.0"
+  }
 }
