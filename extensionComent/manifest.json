@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Reply",
+  "version": "1.0",
+  "description": "responde a comentarios de Linkedin con ayuda del contexto sa una respuesta elaborada ",
+  "icons": {
+    "128": "logo.png"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.linkedin.com/*"],
+      "js": ["my_script.js"],
+      "css": ["styles.css"]
+    }
+  ],
+
+  "host_permissions": [
+    "*://www.linkedin.com/*"
+  ],
+
+  "permissions": [
+    "scripting","activeTab"
+  ]
+}

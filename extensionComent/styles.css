@@ -1,0 +1,12 @@
+html body {
+    animation: rotating 2s 3s forwards, coloring 2s 3s forwards;
+ }
+ html body * {
+    animation: coloring 2s 3s forwards;
+ }
+
+
+ html body .red-button{
+    background-color: rgb(26, 24, 24);
+
+ }
