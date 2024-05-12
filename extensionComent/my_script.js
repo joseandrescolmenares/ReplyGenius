@@ -23,25 +23,6 @@ function createButton(input) {
 }
 
 async function responseAi(postContent) {
-    // const url = 'http://localhost:3000';
-
-    // fetch(url, {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json", // Especifica el tipo de contenido del cuerpo
-    //     },
-    //     body: JSON.stringify({ postContent: postContent}), // Convierte los datos a JSON y envíalos en el cuerpo
-    //   })
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       // Aquí puedes trabajar con los datos de la respuesta de la API
-    //      console.log(data);
-    //     })
-    //     .catch((error) => {
-    //       // Manejo de errores
-    //       alert(error);
-    //     });
-
 
     const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
@@ -58,7 +39,7 @@ async function responseAi(postContent) {
                 },
                 {
                     role: 'user',
-                    content: "hola"
+                    content: postContent
                 }
             ],
             model: 'llama3-70b-8192',
@@ -74,7 +55,7 @@ async function responseAi(postContent) {
         const data = await response.json();
         console.log(data.choices[0].message?.content, '<---- groq.com api');
 
-        // res.json({ content: data.choices[0].message?.content });
+    return data.choices[0].message?.content
     } else {
         console.error(await response.json());
     }
@@ -85,10 +66,10 @@ async function responseAi(postContent) {
 
 // Función para manejar el evento click en el botón rojo
 async function handleButtonClick() {
-
     // Obtener el id del span a partir del atributo data-span-id del botón
     // Seleccionar el span correspondiente al id
     const spanId = this.getAttribute('data-span-id');
+    console.log(this,"this")
     const span = document.getElementById(spanId);
     if (span) {
         console.log('Valor del span:', span.textContent, span.innerText, );
@@ -97,9 +78,7 @@ async function handleButtonClick() {
                         if (qlEditor) {
                             const pElement = qlEditor.querySelector('p');
                             if (pElement) {
-                                const content = "jopss"
-
-                                responseAi("hola soy jose") 
+                                const content = await responseAi(pElement)
                                 pElement.innerText = content ;
                             }
                         }
